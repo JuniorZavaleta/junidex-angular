@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="junidexApp">
+<head>
+  <title>Junidex - Angular</title>
+  <script src="angular.min.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/dataservice.factory.js"></script>
+  <script src="app/pokemon.controller.js"></script>
+</head>
+<body ng-controller="PokemonController as index">
+  <div class="content">
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Japanese Name</th>
+        <th>Types</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="pokemon in index.pokemons">
+          <td>{{ pokemon.name }}</td>
+          <td>{{ pokemon.japanese_name }}</td>
+          <td ng-if="pokemon.types[1]">
+            {{ pokemon.types[0] }} / {{ pokemon.types[1] }}
+          </td>
+          <td ng-if="!pokemon.types[1]">
+            {{ pokemon.types[0] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
