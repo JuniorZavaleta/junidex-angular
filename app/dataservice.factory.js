@@ -1,6 +1,4 @@
-angular
-  .module('junidexApp', [])
-  .factory('dataService', dataService);
+app.factory('dataService', dataService);
 
 var apiBaseUrl = 'http://45.55.83.44/junidex/api/';
 
@@ -14,10 +12,8 @@ function dataService($http) {
 
   function getAllPokemon() {
     return $http.get(apiBaseUrl + 'pokemon/all')
-                .then(getAllPokemonOk);
-
-    function getAllPokemonOk(response) {
-      return response.data;
-    }
+    .then(function(response){
+        return response.data;
+    });
   }
 }
