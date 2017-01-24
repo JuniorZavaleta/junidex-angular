@@ -7,10 +7,20 @@ app.config(function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
     controller : 'MainController',
-    templateUrl : 'templates/main.html'
+    templateUrl : 'templates/main.html',
   })
   .when('/pokemon', {
     controller: 'PokemonController as vm',
     templateUrl: 'templates/pokemon.html',
   });
 });
+
+app.run(['$rootScope', '$route', function($rootScope, $route) {
+    $rootScope.$on('$routeChangeSuccess', function() {
+        if ($('#sidebar').hasClass('visible')) {
+            $('.ui.sidebar').sidebar({
+              context: $('.bottom.segment')
+            }).sidebar('toggle');
+        }
+    });
+}]);

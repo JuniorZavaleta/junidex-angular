@@ -1,21 +1,19 @@
-<div class="content">
-  <table>
-    <thead>
-      <th>Name</th>
-      <th>Japanese Name</th>
-      <th>Types</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="pokemon in vm.pokemons">
-        <td>{{ pokemon.name }}</td>
-        <td>{{ pokemon.japanese_name }}</td>
-        <td ng-if="pokemon.types[1]">
-          {{ pokemon.types[0] }} / {{ pokemon.types[1] }}
-        </td>
-        <td ng-if="!pokemon.types[1]">
-          {{ pokemon.types[0] }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="ui compact table">
+  <thead>
+    <th>Name</th>
+    <th>Japanese Name</th>
+    <th>Types</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="pokemon in vm.pokemons">
+      <td>{{ pokemon.name }}</td>
+      <td>{{ pokemon.japanese_name }}</td>
+      <td ng-if="pokemon.types[1]">
+        {{ pokemon.types[0] }} / {{ pokemon.types[1] }}
+      </td>
+      <td ng-if="!pokemon.types[1]">
+        {{ pokemon.types[0] }}
+      </td>
+    </tr>
+  </tbody>
+</table>
