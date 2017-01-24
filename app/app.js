@@ -12,6 +12,9 @@ app.config(function($routeProvider, $locationProvider){
   .when('/pokemon', {
     controller: 'PokemonController as vm',
     templateUrl: 'templates/pokemon.html',
+  })
+  .when('/pokemon/add', {
+    templateUrl: 'templates/pokemon/add.html'
   });
 });
 
